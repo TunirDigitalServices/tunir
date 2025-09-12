@@ -4,27 +4,27 @@ import Image from "next/image";
 
 const faqsData = [
   {
-    question: "What makes Tunirise different from other agencies?",
+    question: "What makes Tunir different from other agencies?",
     answer:
-      "Tunirise focuses on building long-term relationships through a personalized approach, understanding each client’s unique needs, and offering services that drive real, measurable results.",
+      "Tunir focuses on building long-term relationships through a personalized approach, understanding each client’s unique needs, and offering services that drive real, measurable results.",
   },
   {
-    question: "How does Tunirise help my business grow?",
+    question: "How does Tunir help my business grow?",
     answer:
-      "Tunirise provides comprehensive media production and web development services that help your business enhance its digital presence and engagement, with a focus on organic growth and impactful content creation.",
+      "Tunir provides comprehensive media production and web development services that help your business enhance its digital presence and engagement, with a focus on organic growth and impactful content creation.",
   },
   {
-    question: "How can Tunirise help with content marketing?",
+    question: "How can Tunir help with content marketing?",
     answer:
       "We specialize in creating engaging, high-quality content that drives organic reach and engagement across social media platforms. Our content creation includes planning, strategy, and execution of posts, reels, podcasts, and more.",
   },
   {
-    question: "What is the process for working with Tunirise?",
+    question: "What is the process for working with Tunir?",
     answer:
       "We start by understanding your business goals, followed by a strategy session where we plan out the content or development project. From there, we implement and deliver the services, keeping you informed throughout the process.",
   },
   {
-    question: "Can Tunirise help increase my social media followers?",
+    question: "Can Tunir help increase my social media followers?",
     answer:
       "Yes! We focus on organic growth strategies that can help increase your followers and engagement on platforms like Instagram and Facebook, without needing paid advertisements.",
   },
@@ -34,7 +34,7 @@ const faqsData = [
       "The timeline varies based on the project’s complexity, but most web development projects range from 4 to 12 weeks. We provide a detailed timeline after assessing your requirements.",
   },
   {
-    question: "Does Tunirise provide ongoing support after project completion?",
+    question: "Does Tunir provide ongoing support after project completion?",
     answer:
       "Yes, we offer post-project support and maintenance services to ensure your website or media content remains up-to-date and effective over time.",
   },
