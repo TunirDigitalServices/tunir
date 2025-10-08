@@ -6,6 +6,7 @@ import Dropdown from "./ui/Dropdown";
 const links = [
   { path: "/", name: "Home" },
   { path: "/propos", name: "About" },
+  { path: "/contact", name: "Contact" },
 ];
 
 const services = [

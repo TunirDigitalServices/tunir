@@ -51,16 +51,16 @@ export default function Faqs() {
       <Heading tit1={"FREQUENTLY"} tit2={" ASKED"} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-center items-center gap-x-16 gap-y-5 xl:gap-28 lg:flex-row lg:justify-between max-lg:max-w-2xl mx-auto max-w-full">
-          {/* <div className="w-full lg:w-1/2 lg:d-none">
+          <div className="w-full lg:w-1/2 lg:d-none">
             <Image
               height={400}
               width={500}
               layout="responsive"
-              src="/team/chourouk.jpg"
+              src="/team/khalil.jpg"
               alt="FAQ section illustration"
               className="w-full rounded-xl object-cover"
             />
-          </div> */}
+          </div>
           <div className="w-full">
             <div className="">
               <div className="mb-6 lg:mb-16">

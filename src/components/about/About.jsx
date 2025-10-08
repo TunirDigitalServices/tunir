@@ -64,7 +64,7 @@ export default function About() {
     return arr.find((item) => item.title === title);
   };
   return (
-    <section className="xl:max-h-[860px] mx-auto xl:container md:container sm:container  lg:pb-48 pb-24" data-aos="fade-left">
+    <section className="mx-auto xl:container md:container sm:container  lg:pb-48 pb-8" data-aos="fade-left">
     
       <div className="lg:mb-12 ">
         <Heading tit1="ABOUT US" tit2="ABOUT US" />
