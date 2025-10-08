@@ -15,9 +15,7 @@ const nextConfig = {
         hostname: "assets.aceternity.com",
       },
     ],
-     
-    unoptimized: true, // disables Next.js image optimization
-  
+    // unoptimized removed so sharp handles optimization
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -25,3 +23,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
