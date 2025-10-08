@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true, // optional, recommended
   images: {
+    // Remote images allowed by domain
     remotePatterns: [
       {
         protocol: "https",
@@ -15,12 +17,16 @@ const nextConfig = {
         hostname: "assets.aceternity.com",
       },
     ],
-    // unoptimized removed so sharp handles optimization
+    // With sharp installed, keep optimization enabled
+    unoptimized: false,
   },
   eslint: {
+    // Skip ESLint errors during production build
     ignoreDuringBuilds: true,
+  },
+  experimental: {
+    optimizeCss: true, // optional: speeds up build by optimizing CSS
   },
 };
 
-export default nextConfig;
-
+module.exports = nextConfig;
