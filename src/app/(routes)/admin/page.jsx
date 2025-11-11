@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Heading from "@/components/Heading";
 
 export default function AdminDashboard() {
   const [csvData, setCsvData] = useState([]);
@@ -53,9 +54,8 @@ export default function AdminDashboard() {
       <section className="p-8 pt-48 max-w-7xl mx-auto">
         {/* Heading */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <h2 className="text-4xl lg:text-5xl font-bold z-40">
-            Client Submissions
-          </h2>
+         
+        <Heading tit1="Client " tit2="Submissions" />
         </div>
 
         {/* Download Button */}
