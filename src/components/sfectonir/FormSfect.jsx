@@ -119,7 +119,7 @@ export default function PreRegisterForm() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="lg:max-w-lg lg:mx-auto lg:me-0 ms-auto"
+              className="lg:w-full lg:mx-auto lg:me-0 ms-auto"
             >
               <div className="p-6 sm:p-8 flex flex-col bg-white rounded-2xl shadow-lg dark:bg-neutral-900">
                 <div className="text-center mb-6">

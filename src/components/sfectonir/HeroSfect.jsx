@@ -1,8 +1,14 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import Image from "next/image";
 import { Button } from "../../components/ui/button";
+import sm from "../../../public/partnaires/SMART.png";
+import je from "../../../public/partnaires/je.png";
+import dm from "../../../public/reviews/domiciliation.tn-logo.webp";
+import teach from "../../../public/reviews/teach.png";
+import smart_soft_pro_logo from "../../../public/partnaires/sspro.png";
+import tunir from "../../../public/partnaires/org.png";
 
 export default function HeroSfect() {
   const handleScroll = () => {
@@ -11,29 +17,31 @@ export default function HeroSfect() {
   };
   const partners = [
     {
-      name: "Google",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      name: "SMARTFARM",
+      logo: sm,
     },
     {
-      name: "Microsoft",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+      name: "Junior Entreprise Tunisie",
+      logo: je,
     },
     {
-      name: "Airbnb",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+      name: "Tunir",
+      logo: tunir,
     },
     {
-      name: "Tesla",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg",
+      name: "Domiciliation",
+      logo: dm,
     },
+   
     {
-      name: "Amazon",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+      name: "SSPro",
+      logo: smart_soft_pro_logo,
     },
-    {
-      name: "Facebook",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+     {
+      name: "TeachCode",
+      logo: teach,
     },
+    
   ];
 
   return (
@@ -101,22 +109,30 @@ export default function HeroSfect() {
             </Button>
           </div>
         </div>
-       <section className="py-12 bg-orange-50 dark:bg-neutral-900">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-center">
-      {partners.map((partner, index) => (
-        <div key={index} className="flex justify-center items-center">
-          <img
-            src={partner.logo}
-            alt={partner.name}
-            className="h-12 object-contain filter grayscale hover:grayscale-0 transition duration-300"
-          />
-        </div>
-      ))}
+        <section className="py-12 bg-orange-50 dark:bg-neutral-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-12 items-center justify-center">
+  {partners.map((partner, index) => (
+    <div
+      key={index}
+      className="flex justify-center items-center h-24 md:h-28 w-full"
+    >
+      <Image
+        src={partner.logo}
+        alt={partner.name}
+        className={`object-contain filter grayscale hover:grayscale-0 transition duration-300
+          ${partner.name === "TeachCode" || partner.name === "SSPro" ? "h-16 md:h-16" : "h-20 md:h-22"}
+        `}
+        width={130}
+        height={60}
+      />
     </div>
-  </div>
-</section>
+  ))}
+</div>
 
+
+          </div>
+        </section>
       </section>
     </div>
   );
