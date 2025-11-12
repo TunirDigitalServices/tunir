@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  nextjs:
+    build: .
+    container_name: tunir-website
+    ports:
+      - "6000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
