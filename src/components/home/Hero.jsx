@@ -30,7 +30,7 @@ const Hero = () => {
           {/* Top Badge */}
           <div className="hidden  xl:flex ">
           <Badge
-            containerStyles="absolute top-0 left-1/2 transform -translate-x-1/2"
+            containerStyles="absolute top-1/2 right-0 transform "
             icon={<RiLightbulbFlashFill />}
             badgeText="Creativity"
           />
