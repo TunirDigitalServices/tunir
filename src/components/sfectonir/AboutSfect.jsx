@@ -6,10 +6,10 @@ import Image from "next/image"; // <-- Import Next.js Image component
 import sfectonirLogo from "../../images/sfectonirLogo.png";
 
 export default function AboutSfect() {
-  const handleScroll = () => {
-    const formSection = document.getElementById("pre-register-form");
-    formSection?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const handleScroll = () => {
+  //   const formSection = document.getElementById("pre-register-form");
+  //   formSection?.scrollIntoView({ behavior: "smooth" });
+  // };
   return (
     <section className="mx-auto xl:container md:container sm:container ">
       <div className="lg:mb-12">
@@ -97,7 +97,7 @@ export default function AboutSfect() {
               {/* Call to Action */}
              <div className="mt-8">
   <button
-    onClick={handleScroll}
+    // onClick={handleScroll}
     className="inline-block px-6 py-3 bg-[#FE6E33] text-white rounded-lg shadow hover:bg-[#e65a1c] transition"
   >
     Pre-Register Now

@@ -11,10 +11,10 @@ import smart_soft_pro_logo from "../../../public/partnaires/sspro.png";
 import tunir from "../../../public/partnaires/org.png";
 
 export default function HeroSfect() {
-  const handleScroll = () => {
-    const formSection = document.getElementById("pre-register-form");
-    formSection?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const handleScroll = () => {
+  //   const formSection = document.getElementById("pre-register-form");
+  //   formSection?.scrollIntoView({ behavior: "smooth" });
+  // };
   const partners = [
     {
       name: "SMARTFARM",
@@ -103,7 +103,9 @@ export default function HeroSfect() {
           </p>
 
           <div className="flex justify-center mb-12">
-            <Button className="gap-x-2 text-white" onClick={handleScroll}>
+            <Button className="gap-x-2 text-white" 
+            // onClick={handleScroll}
+            >
               {" "}
               Pre-register Now
             </Button>
