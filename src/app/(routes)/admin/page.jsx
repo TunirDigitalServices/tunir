@@ -1,49 +1,49 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useEffect, useState } from "react";
+// import { useRouter } from "next/navigation";
 import Heading from "@/components/Heading";
 
 export default function AdminDashboard() {
-  const [csvData, setCsvData] = useState([]);
-  const router = useRouter();
+  // const [csvData, setCsvData] = useState([]);
+  // const router = useRouter();
 
-  useEffect(() => {
-    const token = localStorage.getItem("adminToken");
-    if (!token) {
-      router.push("/admin/login");
-      return;
-    }
-    fetchCsv();
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("adminToken");
+  //   if (!token) {
+  //     router.push("/admin/login");
+  //     return;
+  //   }
+  //   fetchCsv();
+  // }, []);
 
-  const fetchCsv = async () => {
-    const res = await fetch("/api/download");
-    if (res.ok) {
-      const text = await res.text();
-      const rows = text.split("\n").filter(Boolean);
-      const headers = rows[0].split(",");
-      const data = rows.slice(1).map((row) => {
-        const values = row.split(",");
-        return headers.reduce((acc, header, i) => {
-          acc[header] = values[i] || ""; // éviter undefined
-          return acc;
-        }, {});
-      });
-      setCsvData(data);
-    } else {
-      setCsvData([]);
-    }
-  };
+  // const fetchCsv = async () => {
+  //   const res = await fetch("/api/download");
+  //   if (res.ok) {
+  //     const text = await res.text();
+  //     const rows = text.split("\n").filter(Boolean);
+  //     const headers = rows[0].split(",");
+  //     const data = rows.slice(1).map((row) => {
+  //       const values = row.split(",");
+  //       return headers.reduce((acc, header, i) => {
+  //         acc[header] = values[i] || ""; // éviter undefined
+  //         return acc;
+  //       }, {});
+  //     });
+  //     setCsvData(data);
+  //   } else {
+  //     setCsvData([]);
+  //   }
+  // };
 
-  const handleLogout = () => {
-    localStorage.removeItem("adminToken");
-    router.push("/admin/login");
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("adminToken");
+  //   router.push("/admin/login");
+  // };
 
   return (
     <div className="relative overflow-x-hidden">
-      {/* Background gradients */}
-      <div
+   
+      {/* <div
         aria-hidden="true"
         className="absolute -top-96 start-3/4 flex transform -translate-x-1/2"
       >
@@ -52,13 +52,13 @@ export default function AdminDashboard() {
       </div>
 
       <section className="p-8 pt-48 max-w-7xl mx-auto">
-        {/* Heading */}
+      
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
          
         <Heading tit1="Client " tit2="Submissions" />
         </div>
 
-        {/* Download Button */}
+        
         <div className="my-6 flex justify-end">
           <a
             href="/api/download"
@@ -68,7 +68,6 @@ export default function AdminDashboard() {
           </a>
         </div>
 
-        {/* Table Card */}
         <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
           {csvData.length === 0 ? (
             <p className="p-6 text-gray-600 dark:text-gray-300">
@@ -115,7 +114,7 @@ export default function AdminDashboard() {
           )}
         </div>
 
-        {/* Logout Button */}
+      
         <div className="flex justify-end p-6">
           <button
             onClick={handleLogout}
@@ -124,7 +123,7 @@ export default function AdminDashboard() {
             Logout
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
