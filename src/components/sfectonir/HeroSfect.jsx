@@ -45,7 +45,7 @@ export default function HeroSfect() {
   ];
 
   return (
-    <div className="relative overflow-x-hidden pb-8 lg:pb-32">
+    <div className="relative overflow-x-hidden pb-8 xl:pt-24 lg:pb-32">
       {/* Background gradients */}
       <div
         aria-hidden="true"
