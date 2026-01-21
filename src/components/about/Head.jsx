@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
-import { ModalVideo, useToggle } from "@baskvava/react-video-modal";
-import { motion } from "framer-motion";
-import picture from "../../images/picture.png";
-import light from "../../images/light.jpg";
-import { Button } from "../ui/button";
-import { Send } from "lucide-react";
-import Image from "next/image";
+// import { ModalVideo, useToggle } from "@baskvava/react-video-modal";
+// import { motion } from "framer-motion";
+// import picture from "../../images/picture.png";
+// import light from "../../images/light.jpg";
+// import { Button } from "../ui/button";
+// import { Send } from "lucide-react";
+// import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
