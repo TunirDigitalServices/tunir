@@ -56,7 +56,7 @@ const Hero = () => {
     Welcome
   </span>
   <span className="text-sm font-medium text-white">
-   Step into Tunir – let's create something amazing!
+   Step into Tunir – let&apos;s create something amazing!
 
   </span>
   <svg

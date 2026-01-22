@@ -11,8 +11,8 @@ import Testimonials from "@/components/sfectonir/Testimonials";
 import Heading from "@/components/Heading";
 import ProfessionalTestimonials from "@/components/sfectonir/ProfessionalTestimonials"; 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-export default function page() {
-   const [tab, setTab] = useState("students");
+export default function Page() {
+  //  const [tab, setTab] = useState("students");
 
 
   return (

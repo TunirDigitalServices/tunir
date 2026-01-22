@@ -8,9 +8,9 @@ const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
     adapter: new PrismaPg({
-      connectionString: process.env.DATABASE_URL!, // <-- your Neon URL
+      connectionString: process.env.DATABASE_URL!, 
     }),
-    log: ["query", "warn", "error"], // optional, for debugging
+    log: ["query", "warn", "error"], 
   });
 
 if (process.env.NODE_ENV !== "production") {
