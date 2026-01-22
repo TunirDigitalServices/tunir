@@ -55,41 +55,22 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, [showModal, router]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Reset status
-    setStatus(null);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus(null);
 
-    // Optional phone validation
-    if (formData.phone) {
-      const phoneNumber = parsePhoneNumberFromString("+" + formData.phone);
-      if (!phoneNumber || !phoneNumber.isValid()) {
-        setStatus({ message: "Numéro de téléphone invalide", type: "error" });
-        return;
-      }
-    }
+  setLoading(true);
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-    setLoading(true);
+    const data = await res.json();
 
-    try {
-      await emailjs.send(
-        "service_j7j635n",
-        "template_pnep27d",
-        {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          company: formData.company,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        },
-        "F2kUjPKkZVikgZw4-"
-      );
-
-      setStatus({
-        message: "Merci ! Votre message a été envoyé.",
-        type: "success",
-      });
+    if (data.success) {
+      setStatus({ message: "Merci ! Votre message a été envoyé.", type: "success" });
       setSubmittedName(formData.firstName);
       setFormData({
         firstName: "",
@@ -101,16 +82,74 @@ useEffect(() => {
       });
       setConfetti(true);
       setShowModal(true);
-    } catch (error) {
-      console.error(error);
-      setStatus({
-        message: "Une erreur est survenue. Vérifiez vos données et réessayez.",
-        type: "error",
-      });
-    } finally {
-      setLoading(false);
+    } else {
+      setStatus({ message: data.error || "Erreur lors de l'envoi", type: "error" });
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setStatus({ message: "Erreur serveur. Réessayez plus tard.", type: "error" });
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+   
+  //   setStatus(null);
+
+  //   // Optional phone validation
+  //   if (formData.phone) {
+  //     const phoneNumber = parsePhoneNumberFromString("+" + formData.phone);
+  //     if (!phoneNumber || !phoneNumber.isValid()) {
+  //       setStatus({ message: "Numéro de téléphone invalide", type: "error" });
+  //       return;
+  //     }
+  //   }
+
+  //   setLoading(true);
+
+  //   try {
+  //     await emailjs.send(
+  //       "service_j7j635n",
+  //       "template_pnep27d",
+  //       {
+  //         first_name: formData.firstName,
+  //         last_name: formData.lastName,
+  //         company: formData.company,
+  //         email: formData.email,
+  //         phone: formData.phone,
+  //         message: formData.message,
+  //       },
+  //       "F2kUjPKkZVikgZw4-"
+  //     );
+
+  //     setStatus({
+  //       message: "Merci ! Votre message a été envoyé.",
+  //       type: "success",
+  //     });
+  //     setSubmittedName(formData.firstName);
+  //     setFormData({
+  //       firstName: "",
+  //       lastName: "",
+  //       company: "",
+  //       email: "",
+  //       phone: "",
+  //       message: "",
+  //     });
+  //     setConfetti(true);
+  //     setShowModal(true);
+  //   } catch (error) {
+  //     console.error(error);
+  //     setStatus({
+  //       message: "Une erreur est survenue. Vérifiez vos données et réessayez.",
+  //       type: "error",
+  //     });
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const closeModal = () => {
     setShowModal(false);
