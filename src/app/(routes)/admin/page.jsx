@@ -9,6 +9,9 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("sfectonir"); // default tab
  const [sfectonirRows, setSfectonirRows] = useState([]);
   const [contactRows, setContactRows] = useState([]);
+  const [loadingSfectonir, setLoadingSfectonir] = useState(false);
+const [loadingContact, setLoadingContact] = useState(false);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -20,21 +23,34 @@ export default function AdminDashboard() {
      fetchSfectonir();
     fetchContacts();
   }, []);
-   const fetchSfectonir = async () => {
+const fetchSfectonir = async () => {
+  setLoadingSfectonir(true);
+  try {
     const res = await fetch("/api/sfectonirSubmissions");
     if (!res.ok) return;
     const data = await res.json();
     setSfectonirRows(data.map((row) => ({ ...row, id: row.id })));
-  };
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoadingSfectonir(false);
+  }
+};
 
 
-
-  const fetchContacts = async () => {
+const fetchContacts = async () => {
+  setLoadingContact(true);
+  try {
     const res = await fetch("/api/contact");
     if (!res.ok) return;
     const data = await res.json();
-    setContactRows(data.map((m) => ({ ...m, id: m.id })));
-  };
+    setContactRows(data.map((row) => ({ ...row, id: row.id })));
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoadingContact(false);
+  }
+};
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
@@ -109,7 +125,7 @@ export default function AdminDashboard() {
             }`}
             onClick={() => setActiveTab("sfectonir")}
           >
-            CSV Submissions
+            SFECTONIR Submissions
           </button>
           <button
             className={`flex-1 px-2 sm:px-4 py-2 text-center whitespace-nowrap ${
@@ -130,6 +146,7 @@ export default function AdminDashboard() {
               rows={sfectonirRows}
               getRowId={(row) => row.id}
               columns={sfectonirColumns}
+               loading={loadingSfectonir} 
               autoHeight
               pageSizeOptions={[10, 25, 50]}
               initialState={{
@@ -146,6 +163,7 @@ export default function AdminDashboard() {
               rows={contactRows}
               getRowId={(row) => row.id}
               columns={contactColumns}
+               loading={loadingContact}
               autoHeight
               pageSizeOptions={[10, 25, 50]}
               initialState={{
