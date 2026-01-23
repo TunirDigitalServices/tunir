@@ -24,7 +24,7 @@ export default function PreRegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/submitForm", {
+      const res = await fetch("/api/sfectonirSubmissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

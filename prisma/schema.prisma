@@ -27,3 +27,17 @@ model ContactMessage {
   message   String
   createdAt DateTime @default(now())
 }
+
+model SfectonirSubmission {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  phone     String
+  age       Int?
+  ville     String?
+  lab       String
+  note      String?
+  createdAt DateTime @default(now())
+}
+

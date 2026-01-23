@@ -1,10 +1,14 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Heading from "@/components/Heading";
+import { DataGrid } from "@mui/x-data-grid";
 
 export default function AdminDashboard() {
-  const [csvData, setCsvData] = useState([]);
+  const [activeTab, setActiveTab] = useState("sfectonir"); // default tab
+ const [sfectonirRows, setSfectonirRows] = useState([]);
+  const [contactRows, setContactRows] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -13,26 +17,23 @@ export default function AdminDashboard() {
       router.push("/admin/login");
       return;
     }
-    fetchCsv();
+     fetchSfectonir();
+    fetchContacts();
   }, []);
+   const fetchSfectonir = async () => {
+    const res = await fetch("/api/sfectonirSubmissions");
+    if (!res.ok) return;
+    const data = await res.json();
+    setSfectonirRows(data.map((row) => ({ ...row, id: row.id })));
+  };
 
-  const fetchCsv = async () => {
-    const res = await fetch("/api/download");
-    if (res.ok) {
-      const text = await res.text();
-      const rows = text.split("\n").filter(Boolean);
-      const headers = rows[0].split(",");
-      const data = rows.slice(1).map((row) => {
-        const values = row.split(",");
-        return headers.reduce((acc, header, i) => {
-          acc[header] = values[i] || ""; // éviter undefined
-          return acc;
-        }, {});
-      });
-      setCsvData(data);
-    } else {
-      setCsvData([]);
-    }
+
+
+  const fetchContacts = async () => {
+    const res = await fetch("/api/contact");
+    if (!res.ok) return;
+    const data = await res.json();
+    setContactRows(data.map((m) => ({ ...m, id: m.id })));
   };
 
   const handleLogout = () => {
@@ -40,90 +41,119 @@ export default function AdminDashboard() {
     router.push("/admin/login");
   };
 
+ 
+        const sfectonirColumns = [
+    { field: "firstName", headerName: "First Name", flex: 1, minWidth: 125 },
+    { field: "lastName", headerName: "Last Name", flex: 1, minWidth: 125 },
+    { field: "email", headerName: "Email", flex: 1.5, minWidth: 150 },
+    { field: "phone", headerName: "Phone", flex: 1, minWidth: 125 },
+    { field: "age", headerName: "Age", flex: 1, minWidth: 100 },
+    { field: "ville", headerName: "City", flex: 1, minWidth: 125 },
+    { field: "lab", headerName: "Lab", flex: 1, minWidth: 125 },
+    { field: "note", headerName: "Note", flex: 2, minWidth: 200 },
+    {
+      field: "createdAt",
+      headerName: "Date",
+      flex: 2,
+      valueGetter: (value, row) => new Date(row.createdAt).toLocaleString(),
+      minWidth: 200,
+    },
+  ];
+
+  const contactColumns = [
+    { field: "firstName", headerName: "First Name", flex: 1, minWidth: 125 },
+    { field: "lastName", headerName: "Last Name", flex: 1, minWidth: 125 },
+    { field: "company", headerName: "Company", flex: 1, minWidth: 125 },
+    { field: "email", headerName: "Email", flex: 1.5, minWidth: 150 },
+    { field: "phone", headerName: "Phone", flex: 1, minWidth: 125 },
+    { field: "message", headerName: "Message", flex: 2, minWidth: 200 },
+    {
+      field: "createdAt",
+      headerName: "Date",
+      flex: 2,
+      valueGetter: (value, row) => new Date(row.createdAt).toLocaleString(),
+      minWidth: 200,
+    },
+  ];
+
   return (
     <div className="relative overflow-x-hidden">
-      {/* Background gradients */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-96 start-3/4 flex transform -translate-x-1/2"
+      {" "}
+      {/* Background gradients */}{" "}
+       <div
+    aria-hidden="true"
+    className="absolute -top-96 start-3/4 flex transform -translate-x-1/2 -z-10" // <- z-index set to -10
+  >
+    <div className="bg-gradient-to-r from-[#50e2d4]/70 to-purple-100 blur-3xl w-[55rem] h-[38rem] rotate-[-60deg] -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900"></div>
+    <div className="bg-gradient-to-tl from-orange-100 via-orange-200 to-orange-100 blur-3xl w-[90rem] h-[50rem] rounded-full origin-top-left -rotate-12 -translate-x-[15rem] dark:from-orange-900/70 dark:via-orange-900/70 dark:to-orange-900/70"></div>
+  </div>
+
+  {/* Content */}
+  <section className="relative z-20 p-8 pt-48 max-w-7xl mx-auto">
+    <div className="flex justify-between items-center mb-6">
+      <Heading tit1="Admin" tit2="Dashboard" />
+      <button
+        onClick={handleLogout}
+        className="px-4 py-2 bg-red-600 text-white rounded-lg shadow"
       >
-        <div className="bg-gradient-to-r from-[#50e2d4]/70 to-purple-100 blur-3xl w-[55rem] h-[38rem] rotate-[-60deg] -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900"></div>
-        <div className="bg-gradient-to-tl from-orange-100 via-orange-200 to-orange-100 blur-3xl w-[90rem] h-[50rem] rounded-full origin-top-left -rotate-12 -translate-x-[15rem] dark:from-orange-900/70 dark:via-orange-900/70 dark:to-orange-900/70"></div>
-      </div>
-
-      <section className="p-8 pt-48 max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-         
-        <Heading tit1="Client " tit2="Submissions" />
-        </div>
-
-        {/* Download Button */}
-        <div className="my-6 flex justify-end">
-          <a
-            href="/api/download"
-            className="px-6 py-3 bg-[#FE6E33] text-white font-semibold rounded-lg shadow transition"
-          >
-            Download CSV
-          </a>
-        </div>
-
-        {/* Table Card */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
-          {csvData.length === 0 ? (
-            <p className="p-6 text-gray-600 dark:text-gray-300">
-              No submissions yet.
-            </p>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="min-w-full border-collapse">
-                <thead className="bg-gray-100 dark:bg-gray-800 sticky top-0">
-                  <tr>
-                    {Object.keys(csvData[0]).map((header) => (
-                      <th
-                        key={header}
-                        className="px-6 py-3 text-left text-gray-700 dark:text-gray-200 font-medium border-b border-gray-300 dark:border-gray-600"
-                      >
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {csvData.map((row, idx) => (
-                    <tr
-                      key={idx}
-                      className={`${
-                        idx % 2 === 0
-                          ? "bg-white dark:bg-gray-900"
-                          : "bg-gray-50 dark:bg-gray-800"
-                      } hover:bg-blue-50 dark:hover:bg-gray-700 transition`}
-                    >
-                      {Object.values(row).map((value, i) => (
-                        <td
-                          key={i}
-                          className="px-6 py-3 border-b border-gray-200 dark:border-gray-700"
-                        >
-                          {value}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
-
-        {/* Logout Button */}
-        <div className="flex justify-end p-6">
+        Logout
+      </button>
+    </div>
+        {/* Tabs */}
+        <div className="flex border-b border-gray-200 dark:border-gray-700 mb-4">
           <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition"
+            className={`flex-1 px-2 sm:px-4 py-2 text-center whitespace-nowrap ${
+              activeTab === "sfectonir"
+                ? "border-b-2 border-orange-500 font-semibold"
+                : "text-gray-500 dark:text-gray-300"
+            }`}
+            onClick={() => setActiveTab("sfectonir")}
           >
-            Logout
+            CSV Submissions
+          </button>
+          <button
+            className={`flex-1 px-2 sm:px-4 py-2 text-center whitespace-nowrap ${
+              activeTab === "contact"
+                ? "border-b-2 border-orange-500 font-semibold"
+                : "text-gray-500 dark:text-gray-300"
+            }`}
+            onClick={() => setActiveTab("contact")}
+          >
+            Contact Messages
           </button>
         </div>
+
+        {/* CSV Table */}
+      {activeTab === "sfectonir" && (
+          <div className="bg-white dark:bg-gray-900 p-2 sm:p-4 rounded-xl shadow">
+            <DataGrid
+              rows={sfectonirRows}
+              getRowId={(row) => row.id}
+              columns={sfectonirColumns}
+              autoHeight
+              pageSizeOptions={[10, 25, 50]}
+              initialState={{
+                pagination: { paginationModel: { pageSize: 10, page: 0 } },
+              }}
+            />
+          </div>
+        )}
+
+        {/* Contact Table */}
+        {activeTab === "contact" && (
+          <div className="bg-white dark:bg-gray-900 p-2 sm:p-4 rounded-xl shadow">
+            <DataGrid
+              rows={contactRows}
+              getRowId={(row) => row.id}
+              columns={contactColumns}
+              autoHeight
+              pageSizeOptions={[10, 25, 50]}
+              initialState={{
+                pagination: { paginationModel: { pageSize: 10, page: 0 } },
+              }}
+            />
+          </div>
+        )}
       </section>
     </div>
   );
