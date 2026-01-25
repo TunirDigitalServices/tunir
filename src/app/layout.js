@@ -1,7 +1,7 @@
 // import type { ReactNode } from "react";
-import Header from "../layouts/Header";
-import Footer from "../layouts/Footer";
-import "../styles/globals.css";
+// import Header from "../layouts/Header";
+// import Footer from "../layouts/Footer";
+// import "../styles/globals.css";
 
 export const metadata = {
   title: "Next.js",
@@ -34,9 +34,9 @@ export default function RootLayout({
           WebkitOverflowScrolling: "touch",
         }}
       >
-        <Header />
+        {/* <Header /> */}
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
