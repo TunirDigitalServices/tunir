@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 // components
 import Logo from "../components/Logo";
 // import ThemeToggler from './ThemeToggler';
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import { usePathname } from "next/navigation";
 const Header = () => {
@@ -38,11 +38,11 @@ const Header = () => {
             <Logo />
             <div className="flex items-center gap-x-6">
               {/* nav */}
-              <Nav
+              {/* <Nav
                 containerStyles="hidden xl:flex gap-x-8 items-center"
                 linkStyles="relative hover:text-primary transition-all"
                 underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full"
-              />
+              /> */}
               {/* <ThemeToggler /> */}
               {/* mobile nav */}
               <div className="xl:hidden">
