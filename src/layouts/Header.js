@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 
 // components
 // import Logo from "../components/Logo";
-// import ThemeToggler from './ThemeToggler';
+import ThemeToggler from './ThemeToggler';
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import { usePathname } from "next/navigation";
