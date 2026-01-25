@@ -2,7 +2,11 @@ const path = require("path");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: { esmExternals: "loose" },
+   swcMinify: false,
+    compiler: {
+    removeConsole: false,
+  },
+ 
   webpack(config) {
     // Make sure Next.js can resolve Prisma generated ESM files
     config.resolve.alias["@prisma/client"] = path.resolve(
