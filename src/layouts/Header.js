@@ -13,16 +13,16 @@ const Header = () => {
   const [header, setHeader] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      window.scrollY > 50 ? setHeader(true) : setHeader(false);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     window.scrollY > 50 ? setHeader(true) : setHeader(false);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on component unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   // Cleanup event listener on component unmount
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <div
