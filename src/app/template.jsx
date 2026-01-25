@@ -13,6 +13,36 @@ const variants = {
 
 const Template = ({ children }) => {
   const completion = useScrollProgress();
+
+
+useEffect(() => {
+  window.onerror = function (message, source, lineno, colno, error) {
+    document.body.innerHTML = `
+      <pre style="white-space: pre-wrap; padding: 16px; color: red;">
+ERROR:
+${message}
+
+SOURCE:
+${source}:${lineno}:${colno}
+
+STACK:
+${error?.stack}
+      </pre>
+    `;
+  };
+
+  window.addEventListener("unhandledrejection", (event) => {
+    document.body.innerHTML = `
+      <pre style="white-space: pre-wrap; padding: 16px; color: red;">
+PROMISE ERROR:
+${event.reason}
+      </pre>
+    `;
+  });
+}, []);
+
+
+
   return (
     <>
       <motion.main
