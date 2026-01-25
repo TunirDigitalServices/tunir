@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 
 // components
 // import Logo from "../components/Logo";
-import ThemeToggler from './ThemeToggler';
+// import ThemeToggler from './ThemeToggler';
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import { usePathname } from "next/navigation";
@@ -43,7 +43,7 @@ const Header = () => {
                 linkStyles="relative hover:text-primary transition-all"
                 underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full"
               />
-              <ThemeToggler />
+              {/* <ThemeToggler /> */}
               mobile nav
               <div className="xl:hidden">
                 <MobileNav />
