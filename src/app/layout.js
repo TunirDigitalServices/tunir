@@ -1,5 +1,5 @@
 // import type { ReactNode } from "react";
-import Header from "../layouts/Header";
+// import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import "../styles/globals.css";
 
