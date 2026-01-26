@@ -34,7 +34,7 @@ export default function RootLayout({
           WebkitOverflowScrolling: "touch",
         }}
       >
-        <Header />
+        {/* <Header /> */}
         <main>{children}</main>
         <Footer />
       </body>
