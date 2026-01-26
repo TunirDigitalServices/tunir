@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "aos/dist/aos.css";
 
 // components
-// import Logo from "../components/Logo";
+import Logo from "../components/Logo";
 // import ThemeToggler from './ThemeToggler';
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
@@ -35,7 +35,7 @@ const Header = () => {
       >
         <div className="mx-auto max-w-[86rem] px-4">
           <div className="flex justify-between items-center ">
-            {/* <Logo /> */}
+            <Logo />
             <div className="flex items-center gap-x-6">
               {/* nav */}
               <Nav
