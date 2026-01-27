@@ -1,5 +1,5 @@
 // import type { ReactNode } from "react";
-// import Header from "../layouts/Header";
+import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import "../styles/globals.css";
 
@@ -34,7 +34,7 @@ export default function RootLayout({
           WebkitOverflowScrolling: "touch",
         }}
       >
-        {/* <Header /> */}
+        <Header />
         <main>{children}</main>
         <Footer />
       </body>
