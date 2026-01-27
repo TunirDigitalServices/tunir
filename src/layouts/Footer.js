@@ -5,7 +5,7 @@ import Socials from "@/components/Socials";
 import { Button } from "@/components/ui/button";
 
 
-import logo from "../images/logounivers.png";
+// import logo from "../images/logounivers.png";
 import Tunirise from "@/components/Tunirise";
 
 const Footer = () => {
