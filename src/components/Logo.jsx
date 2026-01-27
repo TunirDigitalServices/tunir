@@ -1,11 +1,39 @@
-import Link from 'next/link';
-import Image from 'next/image';
-// import logoUni from '../images/logounivers.png';
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import logoUni from "../images/logounivers.png";
+
 const Logo = () => {
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent iOS / SSR crashes
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-    <Link href='/'>
-      {/* <Image src={logoUni} width={120} height={"100%"} alt='logo univers' /> */}
-    </Link>
+    <header
+      style={{
+        paddingTop: "env(safe-area-inset-top)",
+        paddingLeft: "16px",
+        paddingRight: "16px",
+      }}
+    >
+      <Link href="/" aria-label="Go to homepage">
+        <Image
+          src={logoUni}
+          alt="Logo Univers"
+          width={120}
+          height={80}
+          priority
+          style={{ height: "auto", maxWidth: "100%" }}
+        />
+      </Link>
+    </header>
   );
 };
 
