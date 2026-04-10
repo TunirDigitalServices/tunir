@@ -46,7 +46,7 @@ const galleryImages = [
   mom17,
   mom18,
   mom19,
-  
+
   mom21,
   mom22,
   mom23,
@@ -79,7 +79,9 @@ export default function SuccessfulMoments() {
             key={index}
             src={src}
             alt={`Moment ${index + 1}`}
-            className="mb-4 w-full rounded-lg object-cover break-inside"
+            className="mb-4 w-full rounded-lg object-cover"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           />
         ))}
       </div>
