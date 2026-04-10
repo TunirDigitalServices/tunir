@@ -39,7 +39,7 @@ const servicesData = [
       "We create modern, high-performance websites and custom web applications tailored specifically to your business needs.",
   },
   {
-    icon: <Phone size={72} strokeWidth={0.8} />,
+    icon: <Smartphone size={72} strokeWidth={0.8} />,
     title: "Mobile Development",
     description:
       "We design innovative mobile applications for iOS and Android, focused on enhancing user experience .",
@@ -79,6 +79,12 @@ const mediaServicesData = [
       "We produce professional videos, including podcasts and reels, to enhance your online visibility and engage your audience.",
   },
   {
+    icon: <Camera size={72} strokeWidth={0.8} />,
+    title: "Photography",
+    description:
+      "Our experienced photographers capture captivating images to enhance your visual presence and tell your story.",
+  },
+  {
     icon: <Megaphone size={72} strokeWidth={0.8} />,
     title: "Social Media Management",
     description:
@@ -90,12 +96,7 @@ const mediaServicesData = [
     description:
       "We design advertising campaigns on social media, optimizing your return on investment through in-depth analysis and precise targeting.",
   },
-  {
-    icon: <Camera size={72} strokeWidth={0.8} />,
-    title: "Photography",
-    description:
-      "Our experienced photographers capture captivating images to enhance your visual presence and tell your story.",
-  },
+  
   {
     icon: <Palette size={72} strokeWidth={0.8} />,
     title: "Graphic Design",

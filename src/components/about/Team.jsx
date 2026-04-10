@@ -19,15 +19,15 @@ const teamMembers = [
   },
   {
     name: "Afef BAHRY",
-    title: "HR Manager",
+    title: "Marketing Manager",
     image: "/team/afef.jpg",
   },
  
-  {
-    name: "Rawen TOUMI",
-    title: "Customer Service Manager",
-    image: "/team/rawen.jpg",
-  },
+  // {
+  //   name: "Rawen TOUMI",
+  //   title: "Customer Service Manager",
+  //   image: "/team/rawen.jpg",
+  // },
   // {
   //   name: "Faycel BOUAGGA",
   //   title: "Media Technicien",
@@ -39,12 +39,12 @@ const teamMembers = [
   //   image:
   //     "https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1639&q=80",
   // },
-  // {
-  //   name: "Rania ELOUNI",
-  //   title: "It project manager",
-  //   image:
-  //     "https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1639&q=80",
-  // },
+  {
+    name: "Rania ELOUNI",
+    title: "It project manager",
+    image:
+      "/team/rania.jpg",  
+  },
 ];
 function Team() {
   useEffect(() => {
