@@ -83,7 +83,7 @@ const Hero = () => {
           </div>
           <div className="">
           {/* Right-side stacked badges */}
-          <div className=" flex justify-center flex-wrap gap-4">
+          <div className="hidden md:flex justify-center flex-wrap gap-4">
             <Badge
               containerStyles=""
               icon={<RiRocketFill />}
