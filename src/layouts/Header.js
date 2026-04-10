@@ -30,8 +30,8 @@ const Header = () => {
     >
       <header
         className={`${
-          header ? "py-4 shadow-lg backdrop-blur-lg bg-white/70" : "py-6 "
-        }  fixed w-full top-0 z-50 transition-all'} `}
+          header ? "py-4 shadow-lg backdrop-blur-lg bg-white/75" : "py-6 "
+        }  fixed w-full top-0 z-50 transition-all duration-300`}
       >
         <div className="mx-auto max-w-[86rem] px-4">
           <div className="flex justify-between items-center ">
