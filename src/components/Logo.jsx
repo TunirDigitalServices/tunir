@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import logoUni from "../images/logounivers.png";
+import logoUni from "../images/logotunir.png";
 
 const Logo = () => {
   const [mounted, setMounted] = useState(false);
