@@ -44,7 +44,7 @@ export default function LabsSection() {
           Sfectonir offers three specialized labs to blend creativity, technology, and leadership. Each lab allows students to explore, create, and grow through hands-on experience.
         </p>
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16  gap-10 flex flex-col md:flex-row items-center justify-center">
           {labsData.map((lab, index) => (
             <Card
               key={index}
