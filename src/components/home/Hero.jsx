@@ -63,7 +63,7 @@ const Hero = () => {
           {/* Hero Heading */}
           <h1
             style={{ fontFamily: "AgainstRegular", lineHeight: "70px" }}
-            className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-5xl dark:text-white"
+            className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-5xl dark:text-white"
           >
             From imagination to digital reality, we’ve got you covered.
           </h1>

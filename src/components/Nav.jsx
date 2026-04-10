@@ -43,8 +43,8 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, closeSheet }) => {
       {/* Services Dropdown */}
       <div className="mx-auto flex w-full items-center justify-center">
         <div className="group relative cursor-pointer py-2">
-          <div className="flex items-center justify-between space-x-5 py-2 text-white bg-primary pr-2 rounded">
-            <span className="menu-hover text-base font-medium lg:mx-4">
+          <div className="flex items-center justify-between space-x-12 py-2 text-white bg-primary pr-2 rounded">
+            <span className="menu-hover text-base font-medium lg:mx-4 px-2">
               Services
             </span>
             <span>
