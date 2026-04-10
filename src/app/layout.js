@@ -21,6 +21,11 @@ export const metadata = {
     "Tunisia IT Agency",
   ],
   authors: [{ name: "Tunir Digital" }],
+   icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
